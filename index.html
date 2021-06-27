@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <h1 style="text-align:center; margin-top:20%;">
+      Let's play Rock Paper Scissors!<br />Refresh to play again!
+    </h1>
+    <script type="text/javascript">
+      // TODO: Create an array of the three game choices (Rock, Paper, or Scissors).
+      var gameChoices = ["rock", "paper", "scissors"];
+      var userChoice = "";
+      // TODO: Create variables to hold the number of wins, losses, and ties. They start at 0.
+      var win = 0;
+      var lose = 0;
+      var tie = 0;
+
+      for (var i = 0; i < 3; i++) {
+        // TODO: Randomly choose a choice from the gameChoices array. This is the computer's turn.
+        var computerTurn = gameChoices[Math.floor(Math.random()*3)];
+        console.log(computerTurn);
+
+        // TODO: Collect the user's response and convert to lower case. This is the user's turn.
+        var userTurn = window.prompt("Type ROCK, PAPER, or SCISSORS").toLowerCase();
+          if (userTurn == "rock" || userTurn == "paper" || userTurn=="scissors") {
+            if ((userTurn == "rock" && computerTurn == "scissors") || 
+              (userTurn == "paper" && computerTurn == "rock") || 
+              (userTurn == "scissors" && computerTurn == "paper")) {
+              alert("The computer chose " + computerTurn);
+              alert("You won this round!");
+              win = win + 1;
+            }
+            else if (userTurn == computerTurn) {
+              alert("The computer chose " + computerTurn);
+              alert("You tied this round!");
+              tie = tie + 1;
+            }
+            else {
+              alert("The computer chose " + computerTurn);
+              alert("You lost this round");
+              lose = lose + 1;
+            }
+          }
+          else {
+            alert("Please choose a valid option!")
+          }
+
+        // TODO: Create the game logic to run if the user chooses a valid game choice
+          
+        
+      }
+
+      // TODO: When the game is over, alert the final total to the user. We can use the \n character to make a line break.
+      alert("You won " + win + " rounds" 
+            + "\nYou lost " + lose + " rounds"
+            + "\nYou tied " + tie + " rounds");
+    </script>
+  </body>
+</html>
